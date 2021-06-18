@@ -16,7 +16,7 @@ El problema consiste en crear una aplicación para una cafetería dentro de una 
 
 * Creamos la variable **precio = 0** ya que es en esta donde vamos a aguardar el valor de todos los productos que lleve el cliente. 
 
-* Creamos la lista **codigos = []** en ella guardaremos todos los códigos de los productos que compre el cliente. 
+* Creamos el conjunto **codigos = set()** en ella guardaremos todos los códigos de los productos que compre el cliente. 
 
 * Creamos la variable **i = 1** esta será la indicadora de cuantos tipos de productos lleva el cliente 
 
@@ -32,7 +32,7 @@ El problema consiste en crear una aplicación para una cafetería dentro de una 
 
 * Le sumamos a la variable **i**  1.
 
-* Hacemos **codigos.append(producto[0])** para agregar a la lista **códigos** el código de los productos. 
+* Hacemos **codigos.add(producto[0])** para agregar al conjunto **códigos** el código de los productos. 
 
 * Hacemos la operación **precio += int(producto[1]) * int(producto[2])** para obtener el precio de todas las unidades de producto que va a comprar. 
 
@@ -40,11 +40,15 @@ El problema consiste en crear una aplicación para una cafetería dentro de una 
 
 * Dentro de la función calcular se crea la variable **productos = ""** donde haremos el listado de los códigos de los productos que lleve el cliente. 
 
+* Creamos la variable **contador = 1** el cual nos ayudara a hacer la lista de codigos más adelante 
+
 * Después creamos los condicionales **if rol == "estudiante"** en la cual si el rol del cliente es estudiante se realiza la operación **precio = precio - (precio * 0.5)** aquí se le hará el descuento del 50% sobre el total de su compra. 
 
 * Se crea el condicional **elif rol == "profesor" or rol == "profesora"** en caso de que el rol sea profesor o profesora se hace la operación **precio = precio - (precio * 0.2)**  aquí se le hará el descuento del 20% sobre el total de su compra. 
 
-* Despues creamos el ciclo **for i in range(len(codigos))** que hará en bucle la operación **productos += codigos[i]** para agregar a un string todos los códigos de los productos que va a comprar, dentro de este también estará el condicional **if i < (len(codigos) - 1)** en caso de ser cierta la condición se hará esto **productos += ", "** con el fin de separar todos los códigos por comas. 
+* Despues creamos el ciclo **for i in codigos** que hará en bucle la operación **productos += i** para agregar a un string todos los códigos de los productos que va a comprar, dentro de este también estará el condicional **if contador < (len(codigos))** en caso de ser cierta la condición se hará esto **productos += ", "** con el fin de separar todos los códigos por comas. 
+
+* al final de cada ciclo se aumenta en uno a **contador*.
 
 * Después se ejecuta la función **imprimir** con los parámetros **rol, documento, precio, productos**. 
 
